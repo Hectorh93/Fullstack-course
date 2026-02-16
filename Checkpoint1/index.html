@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+
+<!-- Las imagenes son propias para el Grid 4 y las demás vienen de google:
+https://images.pexels.com/photos/2031758/pexels-photo-2031758.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500
+https://cdn.pixabay.com/photo/2013/07/08/13/33/pueblo-143982_640.jpg -->
+
+<head>
+    <meta charset="UTF-8">
+    <title>M1C1 CSS Grid Assignment</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/287079ddbb.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Honk:MORF@15&display=swap" rel="stylesheet">
+</head>
+<style>
+    /* Style assigmnment Grid 1 */
+    .gridOne {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    /* Style assigmnment Grid 2 */
+    .gridTwo {
+        display: grid;
+        grid-template-columns: 1fr 1fr 2fr;
+    }
+
+    .gridTwo-one p {
+        background-color: red;
+    }
+
+    .gridTwo-two p {
+        background-color: blue;
+    }
+
+    .gridTwo-three p {
+        background-color: yellow;
+    }
+
+    /* Style assigmnment Grid 3 */
+    .gridThree {
+        width: 500px;
+        height: 300px;
+        display: grid;
+        grid-template-rows: 1fr 3fr;
+    }
+
+    .gridThree-one {
+        background-color: red;
+    }
+
+    .gridThree-two {
+        background-color: blue;
+    }
+
+    .gridThree-two img {
+        width: 500px;
+        height: 225px;
+        object-fit: cover;
+    }
+
+    /* Style assigmnment Grid 4 */
+    .gridFour {
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        width: 500px;
+        background-color: green;
+    }
+
+    #gridFour-two-id {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Style assigmnment Grid 5 */
+    .gridFive {
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        width: 500px;
+        /*No queda claro con el ejemplo si el background debe ser verde o no.
+        Le he dado un tono distinto para que se aprecie*/
+        background-color: greenyellow;
+
+    }
+
+    #gridFive-two-id {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+    }
+
+    #gridFive-two-id img {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+    }
+
+    /* Style assigmnment Grid 6 */
+    .gridSix {
+        display: grid;
+        /*Cuesta seleccionar las columnas para comprobar los anchos ya que no hay divisiones suficientes para ello
+        al seleccionar el texto "p" si que se puede ver 375px, entendiendo que la columna restante es 125 sumando los 500
+        en proporción 1 3 */
+        grid-template-columns: 1fr 3fr;
+        width: 500px;
+        background-color: lightgray;
+    }
+
+    .gridSix p {
+        font-family: "Honk";
+    }
+</style>
+
+<body>
+    <!-- Body assigmnment Grid 1 -->
+    <div class="gridOne">
+        <p>Hello World</p>
+        <p style="color:blue;">My Fantastic Content</p>
+    </div>
+
+    <!-- Body assigmnment Grid 2 -->
+    <div class="gridTwo">
+        <div class="gridTwo-one">
+            <p>Nire katuak</p>
+        </div>
+        <div class="gridTwo-two">
+            <p>oso politak</p>
+        </div>
+        <div class="gridTwo-three">
+            <p>dira</p>
+        </div>
+    </div>
+    <!-- Body assigmnment Grid 3 -->
+    <div class="gridThree">
+        <div class="gridThree-one">
+            <p>La primera persona del presente del indicativo del verbo "roer" es "yo roo".</p>
+        </div>
+        <div class="gridThree-two">
+            <img src="images/Tractor_cubano.JPG" alt="">
+        </div>
+    </div>
+    <!-- Body assigmnment Grid 4 -->
+    <div class="gridFour">
+        <div class="gridFour-one">
+            <p>Solo una sección "clase"</p>
+        </div>
+        <div id="gridFour-two-id">
+            <p>Soy una sección "id"</p>
+            <p>Y yo también!</p>
+        </div>
+    </div>
+    <!-- Body assigmnment Grid 5 -->
+    <div class="gridFive">
+        <div class="gridFive-one">
+            <p>Me gustan los trenes</p>
+        </div>
+        <div id="gridFive-two-id">
+            <img src="images/Tren1.webp" alt="">
+            <img src="images/Tren2.webp" alt="">
+        </div>
+    </div>
+    <!-- Body assigmnment Grid 6 -->
+    <div class="gridSix">
+        <i class="fa-solid fa-cat"></i>
+        <p>Lo de meter simbolos con FontAwesome no me resulta divertido</p>
+    </div>
+
+</body>
+
+</html>
