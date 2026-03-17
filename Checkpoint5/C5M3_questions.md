@@ -88,7 +88,8 @@ Existen dos tipos de bucles en Python, bucles "for" y "while" ambos permiten hac
     - La variable de iteración no tiene que ser declarada antes del bucle, es un elemento interno. El cuerpo del bucle se ejecturá tantas veces como elementos iterables haya.
     - Se pueden anidar multiples bucles, se recomienda cambiar de variable de iteración en cada uno para no mezclarlos. 
     - La propia variable de iteración se puede usar dentro del código a ejecutar por lo que se puede modificar lo que hace este en cada iteración.
-
+  
+  
     > Es el bucle más común ya que no genera bucles infinito y permite de manera muy visual recorrer variables de múltiples elementos (listas, tupples, diccionarios, etc)
 
 - Bucle "while". Siempre requiere de una condición como las descritas en la pregunta anterior y mientras esta sea TRUE, el código seguira ejecutandose. Si la condición nunca es FALSE, el código se queda en un bucle infinito, por lo que hay que tener cuidado a la hora de usarlo.  
