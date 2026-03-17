@@ -49,4 +49,8 @@
 # print(tags)
 # totals =[234,1,543,23456]
 # totals.sort(reverse)
-
+uno = {1:2}
+dos = {2:3}
+tres = {3:4}
+c = sum(uno + dos + tres)
+print(c)
