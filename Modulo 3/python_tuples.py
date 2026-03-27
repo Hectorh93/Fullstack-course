@@ -44,6 +44,3 @@
 
 # # merged_tags = tags_one | tags_two
 # # print(merged_tags)
-
-
-    # Write your code here

@@ -9,6 +9,4 @@ def fizz_buzz(max_num):
         else:
             print(num)
 
-
-
 fizz_buzz(100)
