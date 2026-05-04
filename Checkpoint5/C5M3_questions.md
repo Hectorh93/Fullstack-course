@@ -36,11 +36,11 @@ pueda tomar decisiones por sí mismo permitiendo filtrar la ejecución de partes
     - "not" invierte la condición si es TRUE pasa a FALSE y viceversa  
 
     Un ejemplo de esto:  
-    ```  
-    TRUE and FALSE -> (FALSE)
-    TRUE or FALSE -> (TRUE)
-    not False and TRUE -> TRUE  
-    ``` 
+     
+            TRUE and FALSE -> (FALSE)
+            TRUE or FALSE -> (TRUE)
+            not False and TRUE -> TRUE  
+    
 
 - Existe un número muy reducido de elementos de control:  
 

@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Checkpoint4 - C8_FirstMK</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../css/brands.min.css" rel="stylesheet">
+        <link href="../css/solid.min.css" rel="stylesheet">
+        <link href="../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">C8_FirstMK</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href=".." class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="./" class="nav-link active" aria-current="page">Checkpoint4</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href=".." class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" class="nav-link disabled">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#checkpoint-8" class="nav-link">CHECKPOINT 8</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#1-que-tipo-de-bucles-hay-en-js" class="nav-link">1. ¿Qué tipo de bucles hay en JS?</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#2-cuales-son-las-diferencias-entre-const-let-y-var" class="nav-link">2. ¿Cuáles son las diferencias entre const, let y var?</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#3-que-es-una-funcion-de-flecha" class="nav-link">3. ¿Qué es una función de flecha?</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#4-que-es-la-deconstruccion-de-variables" class="nav-link">4. ¿Qué es la deconstrucción de variables?</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#5-que-hace-el-operador-de-extension-en-js" class="nav-link">5. ¿Qué hace el operador de extensión en JS?</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#6-que-es-la-programacion-orientada-a-objetos" class="nav-link">6. ¿Qué es la programación orientada a objetos?</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#7-que-es-una-promesa-en-js" class="nav-link">7. ¿Qué es una promesa en JS?</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#8-que-hacen-async-y-await-por-nosotros" class="nav-link">8. ¿Qué hacen async y await por nosotros?</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="checkpoint-8">CHECKPOINT 8</h1>
+<h2 id="1-que-tipo-de-bucles-hay-en-js">1. ¿Qué tipo de bucles hay en JS?</h2>
+<p>Los bucles (loops) son estructuras de control que permiten repetir un bloque de código varias veces. 
+Son fundamentales para automatizar tareas, recorrer datos y evitar repetir código manualmente.</p>
+<p>En JavaScript existen varios tipos de bucles, cada uno con un propósito específico.</p>
+<ol>
+<li>
+<p>Bucle <strong>for</strong>:</p>
+<p>Un bucle <em>for</em> en JavaScript para repetir un bloque de código un número determinado de veces. Es especialmente útil cuando sabes de antemano cuántas iteraciones necesitas, por ejemplo al recorrer un array o contar desde un número inicial hasta uno final.  </p>
+<p>La sintaxis básica de un bucle <em>for</em> tiene tres partes dentro de los paréntesis: inicialización, condición y actualización. Estas tres partes están separadas por punto y coma. Primero se ejecuta la inicialización una sola vez, luego antes de cada iteración se evalúa la condición, y si esta es verdadera se ejecuta el bloque de código. Después de cada iteración se ejecuta la actualización, y el proceso se repite. </p>
+<p><code>for (inicialización; condición; actualización) {
+    // código a ejecutar
+}</code></p>
+<p>Ejemplo básico:<br />
+<code>for (let i = 0; i &lt; 5; i++){  
+     console.log(i);  
+}</code></p>
+<p>Funcionamiento paso a paso:</p>
+<ul>
+<li>Se ejecuta la inicialización (let i = 0) una sola vez.</li>
+<li>Se evalúa la condición (i &lt; 5).</li>
+<li>Si la condición es verdadera, se ejecuta el bloque de código.</li>
+<li>Se ejecuta la actualización (i++).</li>
+<li>Se repite el proceso hasta que la condición sea falsa.</li>
+</ul>
+<p>La actualización se puede poner de cualquier manera, es decir, en incrementos o decrementos de diferente cantidad (no tiene por qué ser de uno en uno). La función solamente comprueba que la condición siga siendo <em>true</em> para iniciar el bucle.  </p>
+<blockquote>
+<p>Si la condición es <em>false</em> en el primer ciclo nada del código se ejecuta.  </p>
+</blockquote>
+</li>
+</ol>
+<p><br/><br/>
+<img alt="For" src="../images/for.png" title="For" />
+<br/><br/></p>
+<pre><code>Se permite la anidación de múltiples bucles **for** uno dentro del otro, en estos casos hay que utilizar diferentes variables de iteración ya que cualquier normalmente se desea que esta sea independiente para cada bucle **for**. Ejemplo:
+```
+for (let i = 1; i &lt;= 3; i++) {
+    for (let j = 1; j &lt;= 5; j++) {
+        console.log(i + " x " + j + " = " + (i * j));
+    }
+}
+```
+
+Aquí el bucle externo usa la variable i y va del 1 al 3. Por cada valor de i, el bucle interno usa j y va del 1 al 5.  
+Por ejemplo, cuando i vale 1, el bucle interno imprime todas las multiplicaciones de 1. Luego i pasa a 2 y se repite todo el proceso.
+
+Es importante tener en cuenta que los bucles anidados pueden ser costosos en términos de rendimiento si las iteraciones son muy grandes, porque el número total de ejecuciones es el producto de ambos bucles. Por ejemplo, si uno se ejecuta 100 veces y el otro también, el bloque interno se ejecutará 10,000 veces.
+</code></pre>
+<ol>
+<li>
+<p>Bucle <strong>while</strong></p>
+<p>Este bucle se utiliza cuando no sabes exactamente cuántas veces se va a ejecutar el código, pero sí conoces la condición de salida. </p>
+<p>La estructura básica de un while en JavaScript es la siguiente:<br />
+<code>while (condición) {
+    // código a ejecutar
+}</code>
+Ejemplo:  </p>
+<p><code>let i = 0;
+while (i &lt; 5) {
+    console.log(i);
+    i++;
+}</code>
+Se crea una variable <em>i</em> con valor 1. Luego el while comprueba si <em>i</em> es menor o igual a 5. Como lo es, entra al bucle y muestra el valor de <em>i</em>. Después incrementa <em>i</em> en 1. Esto se repite hasta que <em>i</em> llega a 6. En ese momento, la condición <em>i</em> &lt;= 5 es falsa y el bucle se detiene. Se leera en la salida 1 2 3 4 5.<br />
+<br/><br/>
+<img alt="While" src="../images/while.png" title="While" />
+<br/><br/></p>
+<p>Es muy importante en estos bucles entender que si la condición no se cumple o no existe algo que afecte a la condición, nunca saldrá de dicho circulo y estaremos ante un código atascado del que solo se puede salir cancelando el programa.<br />
+<code>while (true) {
+    console.log("Esto nunca termina");
+}</code></p>
+<blockquote>
+<p>Suelen ser muy usados en sistemas que deben quedar encendidos esperando una acción externa o que requieren de una acción continua como un menú de un videojuego en el que hasta que no se selecciona una acción sigue la misma pantalla.</p>
+</blockquote>
+<p><br/><br/>
+<div align="center">
+    <img src="images/diff_loop.webp" alt="Class_prop" width="500">
+</div>
+<br/><br/></p>
+</li>
+</ol>
+<hr />
+<ol>
+<li>
+<p>Bucle <strong>do...while</strong></p>
+<p>Es muy similar a <em>while</em>, pero con una diferencia clave: el código se ejecuta al menos una vez, aunque la condición sea falsa desde el principio.</p>
+<p>Sintaxis:<br />
+<code>do {
+    // código
+} while (condición);</code>
+Ejemplo:<br />
+<code>let i = 0;
+do {
+console.log(i);
+i++;
+} while (i &lt; 5);</code><br />
+<br/><br/>
+<img alt="Do_While" src="../images/do_while.webp" title="do_while" />
+<br/><br/></p>
+<p>Diferencia importante:</p>
+<ul>
+<li><strong>while</strong>: primero comprueba, luego ejecuta</li>
+<li><strong>do...while</strong>: primero ejecuta, luego comprueba</li>
+</ul>
+<p>Es muy típico su uso para crear algo y luego comprobar la condicion de si debe seguir existiendo (constructor, objeto).</p>
+</li>
+<li>
+<p>Bucle <strong>for...of</strong></p>
+<p>Este bucle está diseñado para recorrer valores directamente dentro de estructuras iterables (como arrays o strings), sin necesidad de usar índices.</p>
+<p>Sintaxis:<br />
+<code>for (let variable of iterable) {
+    // código
+}</code></p>
+<p>Ejemplo con array:<br />
+<code>const numeros = [10, 20, 30];
+for (let num of numeros) {
+    console.log(num);
+    }</code></p>
+<p>Con este tipo de bucle lo que se consigue es un código más limpio y legible ya que es una operación muy común. Además, se evita el manejo de índices y errores de rango.  </p>
+</li>
+</ol>
+<p><br/><br/>
+<img alt="loops" src="../images/loops.webp" title="loops" />
+<br/><br/></p>
+<ol>
+<li>
+<p>Bucle <strong>for...in</strong></p>
+<p>Este bucle se utiliza para recorrer las propiedades (claves) de un objeto por lo que tiene un uso muy orientado a objetos y es muy util en este campo simplificando y aclarando el cógigo.</p>
+<p>Sintaxis:<br />
+<code>for (let clave in objeto) {
+    // código
+}</code></p>
+<p>Ejemplo:<br />
+<code>const persona = {
+nombre: "Ana",edad: 25,ciudad: "Madrid"
+};
+for (let clave in persona) {
+    console.log(clave); // nombre, edad, ciudad
+    console.log(persona[clave]); // valores
+}</code>
+En cada iteración, "clave" toma el nombre de una propiedad del objeto por lo que se pueden hacer diferentes acciones con la misma variable mientras esta cambia.</p>
+<p>No se recomienda usar <em>for...in</em> para arrays, porque recorre índices como strings y puede incluir propiedades heredadas dandonos errores no esperados en el código.</p>
+</li>
+<li>
+<p>Comandos <strong>clave</strong> en el uso de bucles.</p>
+<ul>
+<li>
+<p><strong>break</strong>:  </p>
+<p>Sirve para salir completamente del bucle antes de que termine.</p>
+<p><code>for (let i = 0; i &lt; 10; i++) {
+    if (i === 5) break;
+    console.log(i);
+}</code>
+Resultado: imprime del 0 al 4 aunque la condición permita llegar hasta 9.</p>
+</li>
+<li>
+<p><strong>continue</strong>:  </p>
+<p>Sirve para saltar una iteración y continuar con la siguiente.
+<code>for (let i = 0; i &lt; 5; i++) {
+if (i === 2) continue;
+console.log(i);
+}</code>
+Resultado: imprime 0, 1, 3, 4</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="2-cuales-son-las-diferencias-entre-const-let-y-var">2. ¿Cuáles son las diferencias entre const, let y var?</h2>
+<p>En JavaScript, <strong>const</strong>, <strong>let</strong> y <strong>var</strong> son formas de declarar variables, pero tienen diferencias importantes en alcance, reasignación, elevación (hoisting) y comportamiento general.</p>
+<ul>
+<li>
+<p>La primera gran diferencia es el <strong>alcance</strong> (scope):<br />
+    Las variables declaradas con <strong>var</strong> tienen alcance de función, lo que significa que solo están limitadas por la función en la que se declaran. Si se declaran fuera de una función, pasan a ser globales.<br />
+    En cambio, let y const tienen alcance de bloque, es decir, solo existen dentro del bloque de código donde se definen, como dentro de un if, un for o cualquier par de llaves.</p>
+<p>Ejemplo con <strong>var</strong>:<br />
+<code>if (true) {
+    var x = 10;
+}
+console.log(x);</code>
+Aquí x sigue existiendo fuera del bloque, lo que puede causar problemas en programas grandes.</p>
+<p>Ejemplo con let:<br />
+<code>if (true) {
+    let y = 20;
+}
+console.log(y);</code>
+Esto da error, porque y solo existe dentro del bloque.  </p>
+</li>
+</ul>
+<p><br/><br/>
+<img alt="var" src="../images/var-let-const.png" title="var" />
+<br/><br/>
+- La segunda diferencia es la <strong>reasignación</strong>.<br />
+Las variables declaradas con let pueden cambiar su valor posteriormente, mientras que las declaradas con const no pueden ser reasignadas después de su inicialización.</p>
+<pre><code>Ejemplo con let:
+```
+let numero = 5;
+let numero = 10;
+```
+Esto da error porque no se permite la reasignación en el mismo bloque de código. Sin embargo:
+```
+let numero = 5;
+numero = 10;
+```
+Este reasigna la variable correctamente a 10.
+
+Ejemplo con const:
+```
+const numero = 5;
+numero = 10;
+```
+Esto produce un error porque *const* no permite reasignar.
+
+-  Hay un matiz importante: const no significa que el valor sea completamente inmutable, sino que la referencia no puede cambiar. Por ejemplo, si se trata de un objeto o un array, sí se pueden modificar sus propiedades o elementos.
+
+    Ejemplo:  
+    ```
+    const persona = { nombre: "Ana" };
+    persona.nombre = "Luis";
+    ```
+    Pero si intentamos cambiar la variable entera:
+    ```
+    persona = { nombre: "Carlos" };
+    ```
+    Esto nos dará error.
+</code></pre>
+<p><br/><br/>
+<img alt="variable" src="../images/variables.webp" title="variable" />
+<br/><br/>  </p>
+<ul>
+<li>
+<p>Otra diferencia clave es la <strong>elevación</strong> o hoisting.<br />
+    En JavaScript, las declaraciones con <em>var</em> se elevan al inicio de su contexto, pero se inicializan con undefined. En cambio, <em>let</em> y <em>const</em> también se elevan, pero no se pueden usar antes de su declaración porque están en lo que se llama “zona muerta temporal”.</p>
+<p>Ejemplo con var:<br />
+<code>console.log(a);
+var a = 5;</code>
+Esto imprime undefined.</p>
+<p>Ejemplo con let:
+<code>console.log(a);
+let a = 5;</code>
+Esto da error porque <em>a</em> no está accesible antes de declararse.</p>
+<p>En el caso de const, además, es obligatorio asignarle un valor en el momento de la declaración.<br />
+No se puede declarar una constante sin inicializarla.
+<code>const x;</code>
+Esto produce error.</p>
+</li>
+<li>
+<p>Por último cabe destacar su uso en bucles.<br />
+<strong>let</strong> es muy útil en bucles porque crea una nueva variable en cada iteración, evitando problemas comunes que ocurrían con var.
+    <code>for (var i = 0; i &lt; 3; i++) {
+        setTimeout(() =&gt; console.log(i), 100);
+    }</code>
+    Esto imprime 3, 3, 3 porque i es la misma variable.</p>
+<p><code>for (let i = 0; i &lt; 3; i++) {
+    setTimeout(() =&gt; console.log(i), 100);
+}</code>
+Esto imprime 0, 1, 2 porque cada iteración tiene su propia i.</p>
+</li>
+</ul>
+<blockquote>
+<p>En resumen, <strong>var</strong> es la forma antigua de declarar variables y tiene comportamientos que pueden causar errores, como el alcance de función y el hoisting permisivo. <strong>let</strong> es más seguro y flexible, ya que permite reasignación y respeta el alcance de bloque. <strong>const</strong> es ideal cuando no quieres que la variable cambie de referencia, ayudando a escribir código más predecible. En la práctica moderna, se recomienda usar <strong>const</strong> por defecto y <strong>let</strong> solo cuando necesitas cambiar el valor, evitando var en la mayoría de los casos.</p>
+</blockquote>
+<h2 id="3-que-es-una-funcion-de-flecha">3. ¿Qué es una función de flecha?</h2>
+<blockquote>
+<p>Una función de <strong>flecha</strong> (arrow function) es una forma más moderna y concisa de escribir funciones en JavaScript.  </p>
+<p>Fue introducida en ES6 y se caracteriza por usar la sintaxis <em>=&gt;</em> en lugar de la palabra clave <em>function</em>. Su objetivo principal es simplificar la escritura de funciones y manejar de forma diferente el contexto de this.</p>
+</blockquote>
+<ul>
+<li>
+<p>La forma básica de una función de flecha es:  </p>
+<p><code>const suma = (a, b) =&gt; {
+    return a + b;
+};</code></p>
+</li>
+<li>
+<p>Esta función hace lo mismo que una función tradicional (<em>function</em>) pero una de las ventajas principales es que permite escribir funciones más cortas.  </p>
+<ul>
+<li>
+<p>Si la función tiene una sola expresión, se puede omitir el return y las llaves:
+    <code>const suma = (a, b) =&gt; a + b;</code>  </p>
+</li>
+<li>
+<p>Si solo hay un parámetro, también se pueden omitir los paréntesis:
+    <code>const cuadrado = x =&gt; x * x;</code>  </p>
+</li>
+<li>
+<p>Si no hay parámetros, se deben usar paréntesis vacíos:
+    <code>const saludar = () =&gt; console.log("Hola");</code>  </p>
+</li>
+</ul>
+</li>
+</ul>
+<p><br/><br/>
+<img alt="arrow" src="../images/arrow.png" title="arrow" />
+<br/><br/>  </p>
+<ul>
+<li>
+<p>Una característica importante es cómo manejan el this. Las funciones tradicionales tienen su propio this, que depende de cómo se llamen. En cambio, las funciones de flecha no tienen su propio this, sino que heredan el this del contexto en el que fueron definidas.</p>
+<ul>
+<li>Ejemplo con función tradicional:
+<code>const persona = {
+    nombre: "Ana",
+    saludar: function() {
+        console.log(this.nombre);
+    }
+};
+persona.saludar();</code></li>
+<li>Ejemplo con función de flecha:<br />
+<code>const persona = {
+    nombre: "Ana",
+    saludar: () =&gt; {
+        console.log(this.nombre);
+    }
+};
+persona.saludar();</code>
+En este segundo caso, no funciona como se espera porque this no apunta al objeto persona, sino al contexto externo (por ejemplo, window en el navegador).</li>
+</ul>
+</li>
+<li>
+<p>Donde las funciones de flecha son especialmente útiles es en funciones pequeñas, como callbacks.   <br />
+    Por ejemplo:<br />
+<code>const numeros = [1, 2, 3];
+    const dobles = numeros.map(n =&gt; n * 2);</code></p>
+</li>
+</ul>
+<p><br/><br/>
+<img alt="arrowno" src="../images/arrowno.png" title="arrowno" />
+<br/><br/>  </p>
+<ul>
+<li>Las funciones de flecha no tienen argumentos, no se pueden usar como constructores con <em>new</em> y no tienen <em>prototype</em>.
+    <code>const Persona = (nombre) =&gt; {
+        this.nombre = nombre;
+    };
+    const p = new Persona("Ana");</code>
+    Esto genera error.</li>
+</ul>
+<p>En resumen, las funciones de flecha son una forma más corta y moderna de escribir funciones en JavaScript, especialmente útiles para funciones pequeñas y callbacks. Sin embargo, no son un reemplazo total de las funciones tradicionales, ya que su comportamiento con this y otras limitaciones hacen que en algunos casos sea mejor seguir usando function.</p>
+<h2 id="4-que-es-la-deconstruccion-de-variables">4. ¿Qué es la deconstrucción de variables?</h2>
+<blockquote>
+<p>La deconstrucción de variables (destructuring en JavaScript) es una forma de extraer valores de arrays u objetos y asignarlos directamente a variables, de manera más corta y clara.</p>
+</blockquote>
+<ul>
+<li>
+<p>En lugar de acceder a cada valor manualmente, puedes “desempaquetarlos” en una sola línea.  </p>
+<p>Con arrays, la deconstrucción se basa en la posición de los elementos. Por ejemplo:<br />
+<code>const numeros = [10, 20, 30];  
+const [a, b, c] = numeros;</code>
+Aquí, <em>a</em> vale 10, <em>b</em> vale 20 y <em>c</em> vale 30. Cada variable toma el valor según su posición en el array.</p>
+</li>
+<li>
+<p>También puedes saltarte elementos:<br />
+<code>const numeros = [10, 20, 30];
+    const [a, , c] = numeros;</code>
+    Aquí, <em>a</em> vale 10 y <em>c</em> vale 30, mientras que el segundo valor se ignora.</p>
+</li>
+<li>
+<p>Incluso puedes asignar valores por defecto:<br />
+<code>const [a = 5, b = 10] = [1];</code>
+    En este caso, <em>a</em> vale 1 y <em>b</em> toma el valor por defecto 10 porque no existe en el array.</p>
+</li>
+<li>
+<p>Con objetos, la deconstrucción se basa en los nombres de las propiedades, no en el orden:<br />
+<code>const persona = { nombre: "Ana", edad: 25 };
+    const { nombre, edad } = persona;</code>
+    Aquí se crean dos variables, nombre y edad, con los valores del objeto.</p>
+<ul>
+<li>
+<p>También puedes cambiar el nombre de las variables:<br />
+<code>const { nombre: n, edad: e } = persona;</code>
+    En este caso, <em>n</em> vale "Ana" y <em>e</em> vale 25.</p>
+</li>
+<li>
+<p>Y puedes usar valores por defecto:<br />
+<code>const { nombre, edad, ciudad = "Madrid" } = persona;</code>
+    Como <em>ciudad</em></p>
+<p>no existe en el objeto, toma el valor "Madrid".</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Otra utilidad muy común es usar deconstrucción en parámetros de funciones:
+    <code>function saludar({ nombre, edad }) {
+        console.log(Hola, soy ${nombre} y tengo ${edad} años);
+    }
+    saludar({ nombre: "Ana", edad: 25 });</code>
+    Esto permite trabajar directamente con las propiedades sin tener que acceder a ellas dentro de la función.</p>
+</li>
+</ul>
+<p>En resumen, la deconstrucción de variables es una forma más limpia, rápida y legible de trabajar con datos en arrays y objetos, evitando código repetitivo y facilitando la manipulación de estructuras complejas.</p>
+<h2 id="5-que-hace-el-operador-de-extension-en-js">5. ¿Qué hace el operador de extensión en JS?</h2>
+<p>El operador de extensión en JavaScript, conocido como spread operator y representado por tres puntos (...), sirve para “expandir” o “descomponer” elementos de estructuras como arrays, objetos o incluso cadenas en partes individuales.</p>
+<blockquote>
+<p>Su uso principal es hacer copias, combinar estructuras o pasar múltiples valores de forma más cómoda.  </p>
+</blockquote>
+<p><br/><br/>
+<img alt="spread" src="../images/spread.png" title="spread" />
+<br/><br/>  </p>
+<ul>
+<li>
+<p>Con arrays, permite expandir sus elementos. Por ejemplo:<br />
+<code>const numeros = [1, 2, 3];
+    const copia = [...numeros];</code>
+    Aquí se crea una copia del array. Es una copia superficial, pero suficiente en muchos casos.</p>
+</li>
+<li>
+<p>También se usa para combinar arrays:<br />
+<code>const a = [1, 2];
+    const b = [3, 4];
+    const combinado = [...a, ...b];</code>
+    El resultado es un nuevo array con todos los elementos: [1, 2, 3, 4].</p>
+</li>
+<li>
+<p>Otra utilidad es añadir elementos fácilmente:
+    <code>const numeros = [2, 3];
+    const nuevo = [1, ...numeros, 4];</code>
+    Esto da como resultado [1, 2, 3, 4].</p>
+</li>
+<li>
+<p>Con objetos, el operador de extensión permite copiar y combinar propiedades:
+    <code>const persona = { nombre: "Ana", edad: 25 };
+    const copia = { ...persona };</code>
+    También puedes sobrescribir valores:
+    <code>const persona = { nombre: "Ana", edad: 25 };
+    const actualizada = { ...persona, edad: 30 };</code>
+    Aquí se copia el objeto original, pero se cambia la edad a 30.</p>
+</li>
+<li>
+<p>En funciones, el operador de extensión permite pasar elementos de un array como argumentos individuales:<br />
+<code>function suma(a, b, c) {
+        return a + b + c;
+    }
+    const numeros = [1, 2, 3];
+    suma(...numeros);</code></p>
+<p>Esto equivale a llamar suma(1, 2, 3).</p>
+</li>
+<li>
+<p>También se puede usar con strings, ya que son iterables:
+    <code>const texto = "hola";
+    const letras = [...texto];</code>
+    El resultado es un array: ["h", "o", "l", "a"].</p>
+</li>
+<li>
+<p>Es importante no confundir el operador de extensión (spread) con el operador <strong>rest</strong>, aunque usan la misma sintaxis (...). El spread se usa para expandir elementos, mientras que el rest se usa para agrupar varios elementos en uno solo, por ejemplo en parámetros de funciones:
+    <code>function sumar(...numeros) {
+        return numeros.reduce((acc, n) =&gt; acc + n, 0);
+    }</code></p>
+</li>
+</ul>
+<p><br/><br/>
+<img alt="rest" src="../images/spreadresst.webp" title="rest" />
+<br/><br/>  </p>
+<p>En resumen, el operador de extensión es una herramienta muy útil y moderna que simplifica tareas comunes como copiar, combinar y manipular arrays y objetos, haciendo el código más limpio y legible.</p>
+<h2 id="6-que-es-la-programacion-orientada-a-objetos">6. ¿Qué es la programación orientada a objetos?</h2>
+<p>La programación orientada a objetos (POO) es un paradigma de programación que organiza el código en torno a “objetos”, que son entidades que combinan datos (propiedades) y comportamiento (métodos). En lugar de centrarse solo en funciones y lógica secuencial, la POO modela el software de forma más cercana a cómo pensamos en el mundo real.</p>
+<blockquote>
+<p>Un objeto representa algo concreto, por ejemplo una persona, un coche o una cuenta bancaria. Cada objeto tiene características (como nombre, edad, color) y acciones que puede realizar (como saludar, acelerar o retirar dinero).</p>
+</blockquote>
+<ul>
+<li>Las clases son como plantillas o moldes para crear objetos. Definen qué propiedades y métodos tendrán los objetos que se creen a partir de ellas. Por ejemplo, puedes tener una clase Persona y luego crear múltiples objetos diferentes a partir de esa clase.
+    <code>class Persona {
+        constructor(nombre, edad) {
+            this.nombre = nombre;
+            this.edad = edad;
+        }
+        saludar() {
+            console.log("Hola, soy " + this.nombre);
+        }
+    }¡
+    const persona1 = new Persona("Ana", 25);
+    persona1.saludar();</code>
+    Aquí, Persona es la clase, y persona1 es un objeto creado a partir de ella.</li>
+</ul>
+<p><br/><br/>
+<img alt="Poo" src="../images/Poo.jpg" title="Poo" />
+<br/><br/>  </p>
+<p>La POO se basa en varios conceptos clave:</p>
+<ol>
+<li>
+<p>Uno de ellos es la <strong>encapsulación</strong>, que consiste en agrupar datos y métodos dentro de un objeto y controlar el acceso a ellos. Esto ayuda a proteger la información y evitar modificaciones indebidas.</p>
+</li>
+<li>
+<p>Otro concepto es la <strong>herencia</strong>, que permite crear nuevas clases basadas en otras existentes, reutilizando código. 
+    <code>class Animal {
+        hablar() {
+            console.log("Hace un sonido");
+        }
+    }
+    class Perro extends Animal {
+        hablar() {
+            console.log("Ladra");
+        }
+    }
+    const miPerro = new Perro();
+    miPerro.hablar();</code>
+    Aquí, Perro hereda de Animal y redefine el método hablar.</p>
+</li>
+<li>
+<p>El <strong>polimorfismo</strong> permite que diferentes objetos respondan de manera distinta al mismo método. En el ejemplo anterior, hablar se comporta diferente en Animal y en Perro.</p>
+</li>
+</ol>
+<p><br/><br/>
+<img alt="Pooa" src="../images/Pooa.jpeg" title="Pooa" />
+<br/><br/>  </p>
+<ol>
+<li>También está la <strong>abstracción</strong>, que consiste en mostrar solo los detalles necesarios y ocultar la complejidad interna. Esto facilita el uso del código sin necesidad de entender todos los detalles de su implementación.</li>
+</ol>
+<p>En resumen, la programación orientada a objetos es una forma de organizar el código para hacerlo más modular, reutilizable y fácil de mantener. Se basa en objetos y clases, y utiliza conceptos como encapsulación, herencia, polimorfismo y abstracción para estructurar mejor los programas.</p>
+<h2 id="7-que-es-una-promesa-en-js">7. ¿Qué es una promesa en JS?</h2>
+<p>Una promesa en JavaScript es un objeto que representa el resultado de una operación asíncrona, es decir, una tarea que no se completa inmediatamente, como una petición a un servidor, leer un archivo o esperar un temporizador.</p>
+<blockquote>
+<p>La idea principal es que una promesa actúa como un “compromiso” de que en el futuro se obtendrá un resultado, que puede ser exitoso o fallido.</p>
+</blockquote>
+<ul>
+<li>Una promesa puede estar en tres estados. El estado pendiente significa que la operación todavía no ha terminado. El estado cumplido (fulfilled) indica que la operación se completó correctamente y hay un resultado disponible. El estado rechazado (rejected) significa que ocurrió un error.</li>
+</ul>
+<p>Se crea una promesa usando el constructor <strong>Promise</strong>, que recibe una función con dos parámetros: <em>resolve</em> y <em>reject</em>. <em>resolve</em> se llama cuando la operación termina bien, y <em>reject</em> cuando hay un error.</p>
+<pre><code>const promesa = new Promise((resolve, reject) =&gt; {
+    setTimeout(() =&gt; {
+        const exito = true;
+        if (exito) {
+            resolve(&quot;Operación completada&quot;);
+        } else {
+            reject(&quot;Ocurrió un error&quot;);
+        }
+    }, 2000);
+});
+</code></pre>
+<p>Para trabajar con el resultado de una promesa se usan los métodos <strong>then</strong> y <strong>catch</strong>. <strong>then</strong> se ejecuta cuando la promesa se cumple, y <strong>catch</strong> cuando se rechaza.</p>
+<pre><code>promesa
+.then(resultado =&gt; {
+    console.log(resultado);
+})
+.catch(error =&gt; {
+    console.log(error);
+});
+</code></pre>
+<p>También se pueden encadenar múltiples then para realizar varias acciones seguidas con el resultado:</p>
+<pre><code>promesa
+.then(res =&gt; {
+    return res + &quot; con éxito&quot;;
+})
+.then(res =&gt; {
+    console.log(res);
+})
+.catch(err =&gt; {
+    console.log(err);
+});
+</code></pre>
+<p><br/><br/>
+<img alt="Promise" src="../images/promises.png" title="Promise" />
+<br/><br/>  </p>
+<p>Otra forma más moderna de trabajar con promesas es usando <strong>async</strong> y <strong>await</strong>, que permite escribir código asíncrono como si fuera síncrono:</p>
+<pre><code>async function ejecutar() {
+    try {
+        const resultado = await promesa;
+        console.log(resultado);
+    } catch (error) {
+    console.log(error);
+    }
+}
+ejecutar();
+</code></pre>
+<p>Esto hace que el código sea más fácil de leer y mantener.</p>
+<p>En resumen, una promesa en JavaScript es una herramienta para manejar operaciones asíncronas de forma más organizada, evitando problemas como el “callback hell” y permitiendo trabajar con resultados futuros de manera clara y estructurada.</p>
+<h2 id="8-que-hacen-async-y-await-por-nosotros">8. ¿Qué hacen async y await por nosotros?</h2>
+<p><strong>async</strong> y <strong>await</strong> son herramientas de JavaScript que hacen que trabajar con código asíncrono sea mucho más claro y fácil de leer. Básicamente, permiten escribir código que parece síncrono (es decir, que se ejecuta paso a paso) aunque en realidad esté manejando operaciones que tardan tiempo, como peticiones a APIs o lecturas de datos.</p>
+<p><br/><br/>
+<img alt="Await" src="../images/Await.webp" title="Await" />
+<br/><br/>  </p>
+<ul>
+<li>La palabra clave <em>async</em> se coloca antes de una función para indicar que esa función siempre va a devolver una promesa. Aunque dentro devuelvas un valor normal, JavaScript lo envuelve automáticamente en una promesa.
+    <code>async function saludar() {
+        return "Hola";
+    }</code>
+    Esto en realidad equivale a:
+    <code>function saludar() {
+        return Promise.resolve("Hola");
+    }</code></li>
+<li>
+<p>Por otro lado, <strong>await</strong> se usa dentro de funciones <em>async</em> y sirve para "esperar" a que una promesa se resuelva antes de continuar con la ejecución. Hace que el código se detenga en ese punto hasta que haya un resultado, sin bloquear el hilo principal.</p>
+<p>Ejemplo con promesas normales:
+<code>function obtenerDatos() {
+    return fetch("https://api.ejemplo.com/datos
+    ")
+    .then(res =&gt; res.json())
+    .then(data =&gt; {
+        console.log(data);
+    })
+    .catch(err =&gt; {
+        console.log(err);
+    });
+}</code>
+Ejemplo con async/await:
+<code>async function obtenerDatos() {
+    try {
+        const res = await fetch("https://api.ejemplo.com/datos");
+        const data = await res.json();
+        console.log(data);
+    } catch (err) {
+        console.log(err);
+    }
+}</code>
+Como ves, con async/await el código es más fácil de leer porque se parece más a un flujo normal, sin encadenar muchos <em>then</em>.</p>
+</li>
+</ul>
+<p>Algo importante es que <em>await</em> solo funciona dentro de funciones <em>async</em> (o en módulos modernos donde se permite <em>top-level await</em>). Además, aunque parezca que el código se detiene, en realidad JavaScript sigue manejando otras tareas gracias al <em>event loop</em>.</p>
+<p><br/><br/>
+<img alt="Await2" src="../images/away2.webp" title="Await2" />
+<br/><br/> </p>
+<ul>
+<li>También puedes usar await con varias promesas. Si quieres ejecutarlas en paralelo, puedes usar <strong>Promise.all</strong>:
+    <code>async function ejemplo() {
+        const [a, b] = await Promise.all([promesa1, promesa2]);
+        console.log(a, b);
+    }</code>
+En resumen, <em>async</em> convierte una función en asíncrona y hace que devuelva una promesa, mientras que <em>await</em> permite esperar el resultado de esa promesa de forma más limpia. Juntos simplifican mucho el manejo de operaciones asíncronas y hacen el código más legible y mantenible.</li>
+</ul></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js"></script>
+        <script src="../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

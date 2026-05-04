@@ -1,0 +1,5 @@
+site_name: C8_FirstMK
+nav:
+  - Home: index.md
+  - Checkpoint4: M4C8_Preguntas.md
+theme: mkdocs
