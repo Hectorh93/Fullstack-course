@@ -5,9 +5,9 @@
   "keywords": [
     "footer"
   ],
-  "homepage": "https://github.com/Hectorh93/Fullstack-course/tree/main#readme",
+  "homepage": "https://github.com/Hectorh93/Fullstack-course/tree/main/Modulo%205/Modulo6project/devcamp-js-footer#readme",
   "bugs": {
-    "url": "https://github.com/Hectorh93/Fullstack-course/issues"
+    "url": "https://github.com/Hectorh93/Fullstack-course/tree/main/Modulo%205/Modulo6project/devcamp-js-footer#readme/issues"
   },
   "repository": {
     "type": "git",
@@ -19,5 +19,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "moment": "^2.30.1"
   }
 }
