@@ -1,0 +1,23 @@
+{
+  "name": "devcamp-js-footer",
+  "version": "0.1.0",
+  "description": "This module allows for a dinamic footer to be generated for JS applications with an updated year and name.",
+  "keywords": [
+    "footer"
+  ],
+  "homepage": "https://github.com/Hectorh93/Fullstack-course/tree/main#readme",
+  "bugs": {
+    "url": "https://github.com/Hectorh93/Fullstack-course/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hectorh93/Fullstack-course.git#main"
+  },
+  "license": "MIT",
+  "author": "hector93 <hectorherreralaorden@gmail.com> (https://www.npmjs.com/~hector93npm)",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
