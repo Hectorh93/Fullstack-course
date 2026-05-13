@@ -1,6 +1,6 @@
 {
   "name": "devcamp-js-footer",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "This module allows for a dinamic footer to be generated for JS applications with an updated year and name.",
   "keywords": [
     "footer"
