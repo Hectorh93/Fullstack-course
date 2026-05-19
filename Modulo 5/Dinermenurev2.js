@@ -9,10 +9,15 @@ class Menu {
         this.desserts = desserts;
         this.textos = textos;
     }
+    // devuelve la hora en una variable de 1 a 3 mañana, tarde y noche
     definirhora() {
         while (this.tokene == 0){
             // Se considera de mañana de 4 a 12:59, tarde de 13 a 19:59 y noche de 20 a 3:59 
             var timeInputuser = prompt("Bienvenido, siente. \n Por favor, indique la hora en formato 24h y con los minutos separados por ':' ");
+            if (timeInputuser == null){
+                alert("Si no quieres meter la hora no se puede seguir! \nEl último menú aparecerá, estamos trabajando en ello");
+                return
+            }
             var horas = timeInputuser[0] + timeInputuser[1];
             var minutos = timeInputuser[3] + timeInputuser[4];
             if (timeInputuser.length != 5 || timeInputuser[2] != ":" || 
@@ -34,7 +39,7 @@ class Menu {
         }
         return this.tokene;
     } 
-
+    // genera un bloque de texto con el menu
     textomenu = "";
     menucrear(main,side,postres,hora) {
         this.textomenu = "Menú. \n Los principales son los siguientes: \n"
@@ -53,13 +58,14 @@ class Menu {
         }
         return this.textomenu;
     }
+    // genera un bloque de texto de selección de plato con el precio.
     textoseleccion ="";
     menuseleccion(menu,hora,orden) {
         this.textoseleccion = "Por favor, seleccione un " + orden + " de la lista: "
        
         for (const [key,value] of Object.entries(menu)){
             let precio;
-            if ( hora ===3) {
+            if ( hora == 3) {
                 precio = value + 1;  
             } else { 
                 precio = value;
@@ -68,146 +74,116 @@ class Menu {
         }
         return this.textoseleccion;
     }
-    
+    // genera un texto aleatorio
+    textoaleatorio(){
+        alert(this.textos[Math.floor(Math.random()* this.textos.length)]);
+    }   
+    // hace una petición al usuario con el plato
+    llamadaplato(menu,token,texto){
+        let plato = prompt(this.menuseleccion(menu,token,texto));
+        if (plato == null){
+            if (confirm(`Seguro que no quiere ${texto}`)){
+                return [0,0];
+            } 
+            return;
+        } 
+        plato = plato.toUpperCase();
+        if (plato in menu){
+            this.textoaleatorio(); 
+            if (token == 3) {
+                return [plato, menu[plato] + 1];
+            } else {
+                return [plato, menu[plato]];
+            }
+        } else{
+            alert("No se reconoce ese plato, por favor, elija de nuevo.");
+            return;
+        }
+    }
+
     menuprint() {
         //Postres solo tienen los menús de tarde y noche
         let compra = [];
-        let cuenta = [];
         this.tokene = 0;
         this.definirhora();
-        this.testigo = 0;
+        let plato = "";
+        // Se crea el menú
         if (this.tokene != 1){
             this.menucrear(this.mainlunch,this.sideslunch,this.desserts,this.tokene);
         } else {
             this.menucrear(this.mainmorning,this.sidesmorning,this.desserts,this.tokene);
         }
-
+        // Imprimo menu
         alert(this.textomenu);
         // Llamada primeros
-        while (this.testigo == 0) {
+        while (true) {
             if (this.tokene == 1){
-                compra[0]= prompt(this.menuseleccion(this.mainmorning,this.tokene,"primero"));
-                if (compra[0] in this.mainmorning) {
-                    alert(this.textos[Math.floor(Math.random()* this.textos.length)]); 
-                    cuenta[0] = this.mainmorning[compra[0]];
-                    this.testigo = 1;
-                }   else {
-                    alert("No se reconoce ese plato, por favor, elija de nuevo.")
-                }
+                compra[0] = this.llamadaplato(this.mainmorning,this.tokene,"primero");
             } 
             if (this.tokene == 2){
-                compra[0] = prompt(this.menuseleccion(this.mainlunch,this.tokene,"primero"));
-                if (compra[0] in this.mainlunch) {
-                    alert(this.textos[Math.floor(Math.random()* this.textos.length)]);
-                    cuenta[0] = this.mainlunch[compra[0]];
-                    this.testigo = 1;
-                }   else {
-                    alert("No se reconoce ese plato, por favor, elija de nuevo.")
-                }
+                compra[0] = this.llamadaplato(this.mainlunch,this.tokene,"primero");
             } 
             if (this.tokene == 3){
-                compra[0] = prompt(this.menuseleccion(this.mainlunch,this.tokene,"primero"));
-                if (compra[0] in this.mainlunch) {
-                    alert(this.textos[Math.floor(Math.random()* this.textos.length)]);
-                    cuenta[0] = this.mainlunch[compra[0]] + 1;
-                    this.testigo = 1;
-                }   else {
-                    alert("No se reconoce ese plato, por favor, elija de nuevo.")
-                }
+                compra[0] = this.llamadaplato(this.mainlunch,this.tokene,"primero");
             } 
+            if (compra[0] != undefined){
+                break;
+            }
         };
         // LLamada segundos
-        while (this.testigo == 1) {
+        while (true) {
             if (this.tokene == 1){
-                compra[1] = prompt(this.menuseleccion(this.sidesmorning,this.tokene,"segundo"));
-                if (compra[1] in this.sidesmorning) {
-                    alert(this.textos[Math.floor(Math.random()* this.textos.length)]); 
-                    cuenta[1] = this.sidesmorning[compra[1]];
-                    this.testigo = 2;
-                }   else {
-                    alert("No se reconoce ese plato, por favor, elija de nuevo.")
-                }
+                compra[1] = this.llamadaplato(this.sidesmorning,this.tokene,"segundo");
             } 
             if (this.tokene == 2){
-                compra[1] = prompt(this.menuseleccion(this.sideslunch,this.tokene,"segundo"));
-                if (compra[1] in this.sideslunch) {
-                    alert(this.textos[Math.floor(Math.random()* this.textos.length)]); 
-                    cuenta[1] = this.sideslunch[compra[1]];
-                    this.testigo = 2;
-                }   else {
-                    alert("No se reconoce ese plato, por favor, elija de nuevo.")
-                }
+               compra[1] = this.llamadaplato(this.sideslunch,this.tokene,"segundo");
             } 
             if (this.tokene == 3){
-                compra[1] = prompt(this.menuseleccion(this.sideslunch,this.tokene,"segundo"));
-                if (compra[1] in this.sideslunch) {
-                    alert(this.textos[Math.floor(Math.random()* this.textos.length)]); 
-                    cuenta[1] = this.sideslunch[compra[1]] +1;
-                    this.testigo = 2;
-                }   else {
-                    alert("No se reconoce ese plato, por favor, elija de nuevo.")
-                }
+                compra[1] = this.llamadaplato(this.sideslunch,this.tokene,"segundo");
             } 
+            if (compra[1] != undefined){
+                break;
+            }
         };
             // LLamada postres
-        while (this.testigo == 2) {
+        while (true) {
            if (this.tokene == 1){
-                compra[2] = 0;
-                cuenta[2] = 0;
-                this.testigo = 3;
+                compra[2] = [0,0];
             }
             if (this.tokene == 2){
-                compra[2] = prompt(this.menuseleccion(this.desserts,this.tokene,"postre"));
-                if (compra[2] in this.desserts) {
-                    alert(this.textos[Math.floor(Math.random()* this.textos.length)]);
-                    cuenta[2] = this.desserts[compra[2]];
-                    this.testigo = 3;
-                }   else {
-                    alert("No se reconoce ese plato, por favor, elija de nuevo.")
-                }
+                compra[2] = this.llamadaplato(this.desserts,this.tokene,"postre");
             } 
             if (this.tokene == 3){
-                compra[2] = prompt(this.menuseleccion(this.desserts,this.tokene,"postre"));
-                if (compra[2] in this.desserts) {
-                    alert(this.textos[Math.floor(Math.random()* this.textos.length)]); 
-                    cuenta[2] =  this.desserts[compra[2]] + 1; 
-                    this.testigo = 3;
-                }   else {
-                    alert("No se reconoce ese plato, por favor, elija de nuevo.")
-                }
+                compra[2] = this.llamadaplato(this.desserts,this.tokene,"postre");
             } 
+            if (compra[2] != undefined){
+                break;
+            }
         };
         // Extras
-        while (this.testigo == 3){
+        while (true){
             if (confirm("¿Desea algún extra?")){
-                compra[3] = prompt(this.menuseleccion(this.extras,this.tokene,"extra"))
-                if (compra[3] == null || !(compra[3] in this.extras)){
-                    alert("No encaja con ninguno de los extras. Puede presionar 'Cancelar' para no elegir nada.")
-                } else {
-                    alert(this.textos[Math.floor(Math.random()* this.textos.length)]); 
-                    cuenta[3] = this.extras[compra[3]];
-                    this.testigo = 4;
-                }
+                compra[3] = this.llamadaplato(this.extras,this.tokene,"extra");
             } else { 
-                this.testigo = 4;
-                cuenta[3] = 0;
-                compra[3] = 0;
+                compra[3] = [0,0];
             };
-        }
-        //Checkout
-        if (this.testigo == 4){
-        let textofactura = "Perfecto. La factura total es la siguiente: \n";
-        for (let i = 0; i < compra.length; i++){
-            if (compra[i] != 0){
-            textofactura += compra[i] + " -> " + cuenta[i] + "€\n";
+            if (compra[3] != undefined){
+                break;
             }
         }
-        let totalfact = cuenta.reduce((total, sumando) => total + sumando);
+        //Checkout
+        let textofactura = "Perfecto. La factura total es la siguiente: \n";
+        let totalfact = 0;
+        for (let i = 0; i < compra.length; i++){
+            if (compra[i][0] != 0){
+            textofactura += compra[i][0] + " -> " + compra[i][1] + "€\n";
+            totalfact += compra[i][1];
+            }
+        }
         textofactura += "Tu total es de: \n" + totalfact + "€"
         alert(textofactura);
         console.log(compra);
-        console.log(cuenta);
-        } return {compra,cuenta};
+        return [compra,totalfact];
     }
 }    
 
