@@ -9,8 +9,6 @@ class Menu {
         this.desserts = desserts;
         this.textos = textos;
     }
-
-    tokene = 0;
     definirhora() {
         while (this.tokene == 0){
             // Se considera de mañana de 4 a 12:59, tarde de 13 a 19:59 y noche de 20 a 3:59 
@@ -41,22 +39,22 @@ class Menu {
     menucrear(main,side,postres,hora) {
         this.textomenu = "Menú. \n Los principales son los siguientes: \n"
         for (const key of Object.keys(main)){
-            this.textomenu += "\n" + key + " - ";
+            this.textomenu += "\n " + key ;
         }
-        this.textomenu = this.textomenu + ". \n Los segundos son los siguientes: \n";
+        this.textomenu = this.textomenu + ". \n\n Los segundos son los siguientes: \n";
         for (const key of Object.keys(side)){
-            this.textomenu += "\n" + key + " - ";
+            this.textomenu += "\n " + key ;
         }
-        if (hora != "1"){
-            this.textomenu = this.textomenu + ". \n Los postres son los siguientes: \n";
+        if (hora != 1){
+            this.textomenu = this.textomenu + ". \n\n Los postres son los siguientes: \n";
             for (const key of Object.keys(postres)){
-                this.textomenu += "\n" + key+ " - ";
+                this.textomenu += "\n " + key ;
             }
         }
         return this.textomenu;
     }
     textoseleccion ="";
-    menuselección(menu,hora,orden) {
+    menuseleccion(menu,hora,orden) {
         this.textoseleccion = "Por favor, seleccione un " + orden + " de la lista: "
        
         for (const [key,value] of Object.entries(menu)){
@@ -73,15 +71,17 @@ class Menu {
     
     menuprint() {
         //Postres solo tienen los menús de tarde y noche
-        let compra = new Array(3);
-        let cuenta = new Array(3);
+        let compra = [];
+        let cuenta = [];
+        this.tokene = 0;
         this.definirhora();
+        this.testigo = 0;
         if (this.tokene != 1){
             this.menucrear(this.mainlunch,this.sideslunch,this.desserts,this.tokene);
         } else {
             this.menucrear(this.mainmorning,this.sidesmorning,this.desserts,this.tokene);
         }
-        testigo = 0;
+
         alert(this.textomenu);
         // Llamada primeros
         while (this.testigo == 0) {
@@ -89,7 +89,7 @@ class Menu {
                 compra[0] = prompt(this.menuseleccion(this.mainmorning,this.tokene,"primero"));
                 if (compra[0] in this.mainmorning) {
                     alert(this.textos[Math.floor(Math.random()* this.textos.length)]); 
-                    cuenta[0] = Object.values(this.mainmorning)[Object.keys(this.mainmorning).indexOf(compra[0])];
+                    cuenta[0] = this.mainmorning[compra[0]];
                     this.testigo = 1;
                 }   else {
                     alert("No se reconoce ese plato, por favor, elija de nuevo.")
@@ -99,7 +99,7 @@ class Menu {
                 compra[0] = prompt(this.menuseleccion(this.mainlunch,this.tokene,"primero"));
                 if (compra[0] in this.mainlunch) {
                     alert(this.textos[Math.floor(Math.random()* this.textos.length)]);
-                    cuenta[0] = Object.values(this.mainlunch)[Object.keys(this.mainlunch).indexOf(compra[0])];
+                    cuenta[0] = this.mainlunch[compra[0]];
                     this.testigo = 1;
                 }   else {
                     alert("No se reconoce ese plato, por favor, elija de nuevo.")
@@ -109,7 +109,7 @@ class Menu {
                 compra[0] = prompt(this.menuseleccion(this.mainlunch,this.tokene,"primero"));
                 if (compra[0] in this.mainlunch) {
                     alert(this.textos[Math.floor(Math.random()* this.textos.length)]);
-                    cuenta[0] = Object.values(this.mainlunch)[Object.keys(this.mainlunch).indexOf(compra[0])] + 1;
+                    cuenta[0] = this.mainlunch[compra[0]] + 1;
                     this.testigo = 1;
                 }   else {
                     alert("No se reconoce ese plato, por favor, elija de nuevo.")
@@ -119,10 +119,10 @@ class Menu {
         // LLamada segundos
         while (this.testigo == 1) {
             if (this.tokene == 1){
-                compra[1] = prompt(this.menuseleccion(this.sidesmorningn,this.tokene,"segundo"));
+                compra[1] = prompt(this.menuseleccion(this.sidesmorning,this.tokene,"segundo"));
                 if (compra[1] in this.sidesmorning) {
                     alert(this.textos[Math.floor(Math.random()* this.textos.length)]); 
-                    cuenta[1] = Object.values(this.sidemorning)[Object.keys(this.sidemorning).indexOf(compra[1])];
+                    cuenta[1] = this.sidesmorning[compra[1]];
                     this.testigo = 2;
                 }   else {
                     alert("No se reconoce ese plato, por favor, elija de nuevo.")
@@ -130,9 +130,9 @@ class Menu {
             } 
             if (this.tokene == 2){
                 compra[1] = prompt(this.menuseleccion(this.sideslunch,this.tokene,"segundo"));
-                if (compra[1] in this.sideslunchlunch) {
+                if (compra[1] in this.sideslunch) {
                     alert(this.textos[Math.floor(Math.random()* this.textos.length)]); 
-                    cuenta[1] = Object.values(this.sidelunch)[Object.keys(this.sidelunch).indexOf(compra[1])];
+                    cuenta[1] = this.sideslunch[compra[1]];
                     this.testigo = 2;
                 }   else {
                     alert("No se reconoce ese plato, por favor, elija de nuevo.")
@@ -142,7 +142,7 @@ class Menu {
                 compra[1] = prompt(this.menuseleccion(this.sideslunch,this.tokene,"segundo"));
                 if (compra[1] in this.sideslunch) {
                     alert(this.textos[Math.floor(Math.random()* this.textos.length)]); 
-                    cuenta[1] = Object.values(this.sidelunch)[Object.keys(this.sidelunch).indexOf(compra[1])] +1;
+                    cuenta[1] = this.sideslunch[compra[1]] +1;
                     this.testigo = 2;
                 }   else {
                     alert("No se reconoce ese plato, por favor, elija de nuevo.")
@@ -157,10 +157,10 @@ class Menu {
                 this.testigo = 3;
             }
             if (this.tokene == 2){
-                compra[0] = prompt(this.menuseleccion(this.desserts,this.tokene,"postre"));
+                compra[2] = prompt(this.menuseleccion(this.desserts,this.tokene,"postre"));
                 if (compra[2] in this.desserts) {
                     alert(this.textos[Math.floor(Math.random()* this.textos.length)]);
-                    cuenta[2] = Object.values(this.dessert)[Object.keys(this.dessert).indexOf(compra[2])]; 
+                    cuenta[2] = this.desserts[compra[2]];
                     this.testigo = 3;
                 }   else {
                     alert("No se reconoce ese plato, por favor, elija de nuevo.")
@@ -170,7 +170,7 @@ class Menu {
                 compra[2] = prompt(this.menuseleccion(this.desserts,this.tokene,"postre"));
                 if (compra[2] in this.desserts) {
                     alert(this.textos[Math.floor(Math.random()* this.textos.length)]); 
-                    cuenta[2] = Object.values(this.dessert)[Object.keys(this.dessert).indexOf(compra[2])] + 1; 
+                    cuenta[2] =  this.desserts[compra[2]] + 1; 
                     this.testigo = 3;
                 }   else {
                     alert("No se reconoce ese plato, por favor, elija de nuevo.")
@@ -178,15 +178,14 @@ class Menu {
             } 
         };
         // Extras
-        while (this.tokene == 3){
+        while (this.testigo == 3){
             if (confirm("¿Desea algún extra?")){
-                compra[3] = prompt(this.menuseleccion(this.extras))
-                if (compra[3] = null || compra[3] in this.extras){
-                    alert("No encaja con uno de los textos. Puede presionar 'Cancelar' para no elegir nada.")
-                    continue
+                compra[3] = prompt(this.menuseleccion(this.extras,this.tokene,"extra"))
+                if (compra[3] == null || !(compra[3] in this.extras)){
+                    alert("No encaja con ninguno de los extras. Puede presionar 'Cancelar' para no elegir nada.")
                 } else {
                     alert(this.textos[Math.floor(Math.random()* this.textos.length)]); 
-                    cuenta[3] = Object.values(this.extras)[Object.keys(this.extras).indexOf(compra[3])]; 
+                    cuenta[3] = this.extras[compra[3]];
                     this.testigo = 4;
                 }
             } else { 
@@ -197,53 +196,58 @@ class Menu {
         }
         //Checkout
         if (this.testigo == 4){
-        textofactura = "Perfecto. La factura total es la siguiente: \n";
-        for (valor in compra ){
-            textofactura += cuenta[valor] + " -> " + compra[valor] + "\n";
+        let textofactura = "Perfecto. La factura total es la siguiente: \n";
+        for (let i = 0; i < compra.length; i++){
+            if (compra[i] != 0){
+            textofactura += compra[i] + " -> " + cuenta[i] + "€\n";
+            }
         }
-            alert()
-          
-        } return compra,cuenta;
+        let totalfact = cuenta.reduce((total, sumando) => total + sumando);
+        textofactura += "Tu total es de: \n" + totalfact + "€"
+        alert(textofactura);
+        console.log(compra);
+        console.log(cuenta);
+        } return {compra,cuenta};
     }
 }    
 
 // Datos menús
-var maindisheslunch = {
+const sidedisheslunch = {
     "filete": 12.2,
     "pescado": 14,
     "sopa": 9,
 }
 
-var sidedisheslunch = {
+const  maindisheslunch= {
     "patatas" : 5,
     "menestra" : 4,
     "ensalada" : 8,
 }
-var desserts ={
+const desserts ={
     "flan" : 3,
     "fruta" : 1.5,
     "quesillo" : 2
 }
 
-var morningmainmenu = {
+const morningmainmenu = {
     "tostada con jamon" : 5,
     "galletas maría" : 3,
     "cereales" : 4.2 ,
 }
 
-var morningsidemenu = {
+const morningsidemenu = {
     "zumo de naranja": 4,
     "tazon de leche" : 2,
     "vaso de leche" : 1
 }
 
-var extras = {
+const extras = {
     "salsas" : 2,
     "patatas fritas" : 4,
     "ensalada pequeña" : 3,
 }
 
-var textos = (
+const textos = [
     "Buena elección",
     "Uff eso no lo recomiendo pero usted mismo",
     "No le eche sal",
@@ -251,9 +255,9 @@ var textos = (
     "Todo en la playa sabe mejor!",
     "Eso va derecho a la grasa de la tripa",
     "Es mi plato favorito",
-    "Ese playo lo preparo yo en casa y no me queda tan rico",
+    "Ese plato lo preparo yo en casa y no me queda tan rico",
     "Genial!"
-)
+]
 
 // Creación menús
 var lunchmenu = new Menu(maindisheslunch,sidedisheslunch,morningmainmenu,morningsidemenu,extras,desserts,textos);
